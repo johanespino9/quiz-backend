@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const quizRouter = require('./routes/quizRoutes');
 const mongoose = require('mongoose');
+require('./config/config');
 
 const api = express();
 api.use(bodyParser.json());
@@ -14,9 +15,7 @@ try{
 
 api.use('/quiz', quizRouter);
 
-let port = 8080;
-
-api.listen(port, () => {
-    console.log('Servidor iniciado! :D ' + 'Puerto: ' + port);
+api.listen(process.env.PORT, () => {
+    console.log('Servidor iniciado! :D ' + 'Puerto: ' + process.env.PORT);
 })
 

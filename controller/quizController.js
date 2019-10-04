@@ -10,3 +10,9 @@ exports.createQuiz = async function (req, res) {
     await quiz.save();
     res.send('Quiz creada exitosamente ! :D')
 }
+
+exports.voteQuiz = function (req, res) {
+    let id = req.params.id;
+    
+    res.json({id});
+}
