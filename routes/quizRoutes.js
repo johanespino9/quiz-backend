@@ -4,8 +4,12 @@ const quizController = require('../controller/quizController');
 
 router.get('/test', quizController.test);
 
-router.post('/create', quizController.createQuiz);
+router.get('/', quizController.getQuizzes);
+
+router.get('/:id', quizController.getQuizById);
 
 router.put('/vote/:id', quizController.voteQuiz);
+
+router.post('/create', quizController.createQuiz);
 
 module.exports = router;
