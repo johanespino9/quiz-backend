@@ -11,11 +11,10 @@ exports.createQuiz = async function (req, res) {
     res.send('Quiz creada exitosamente ! :D')
 }
 
-exports.voteQuiz = function (req, res) {
-    // PUT
-    let id = req.params.id;
-    
-    res.json({id});
+exports.voteQuiz = async function (id, quiz) {
+  return Quiz.findOneAndUpdate({ _id: id}, {
+    ...quiz
+  }, { new: true });
 }
 
 exports.getQuizById = async function (req, res) {
