@@ -19,7 +19,7 @@ exports.voteQuiz = async function (id, quiz) {
 
 exports.getQuizById = async function (req, res) {
     console.log(req.params)
-    let quiz = await Quiz.find({createdBy: req.params.createdBy})
+    let quiz = await Quiz.find({title: req.params.title})
     res.json(quiz);
 }
 
